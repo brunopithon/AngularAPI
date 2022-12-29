@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { UsuarioService } from './usuario.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'ApiRequest';
+
+  constructor(private usuarioService: UsuarioService){}
+
+  obterTodosUsuarios(){
+    this.usuarioService.obterTodos()
+      .then(usuarios => console.log(usuarios))
+      .catch(error => console.error(error));
+      
+  }
+
 }
